@@ -1,0 +1,8 @@
+*.o
+*.dbg
+*.nes
+*.nes.dbg
+*.nes.deb
+*.map.txt
+*.labels.txt
+tools/*
