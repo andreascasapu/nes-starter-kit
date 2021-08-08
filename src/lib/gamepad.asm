@@ -50,6 +50,8 @@ GAMEPAD_REGISTER = $4016
 .macro button_press_check button
     .local @not_pressed
     lda GAMEPAD_REGISTER
+    ; TODO figure out if I can replace this with BUTTON_A
+    ; TODO what does this do?
     and #%00000001
     beq @not_pressed    ; beq key not pressed
         lda button
@@ -65,6 +67,7 @@ GAMEPAD_REGISTER = $4016
 
     gamepad_a:
         lda GAMEPAD_REGISTER
+        ; TODO figure out if I can replace this with BUTTON_A
         and #%00000001
         sta gamepad_press
 

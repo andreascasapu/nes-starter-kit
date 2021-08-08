@@ -45,8 +45,10 @@
     BYTE_OFFSET_HI = (ROW * 32 + COL) / 256 + 32 ; (16 * 32 + 4) / 256 + 20
     BYTE_OFFSET_LO = (ROW * 32 + COL) .mod 256
 
+    ; Announce beginning of communication with PPU
     lda PPU_STATUS        ; PPU_STATUS = $2002
 
+    ; Write 2 byte value to PPU, 1 byte at a time
     lda #BYTE_OFFSET_HI
     sta PPU_ADDR          ; PPU_ADDR = $2006
     lda #BYTE_OFFSET_LO
