@@ -259,7 +259,9 @@ OAM_DMA = $4014	; aaaa aaaa	OAM DMA high address
 
     lda #(PPU_MASK_SHOW_SPRITES|PPU_MASK_SHOW_BACKGROUND|PPU_MASK_SHOW_SPRITES_L8|PPU_MASK_SHOW_BACKGROUND_L8) ; PPU_MASK_SHOW_SPRITES
     sta PPU_MASK
+    ; defines the address of the first sprite in OAM (object attribute memory)
     set OAM_ADDR, #0
+    ; begin copying 256 bytes from CPU page $XX00-$XXFF to PPU ORAM
     set OAM_DMA, #$02
 
     rts
